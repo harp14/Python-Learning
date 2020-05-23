@@ -1,6 +1,13 @@
-# Classes
+# Classes: blueprint for creating new objects
+# Object: instance of a class
+
+# Class: Human
+# Objects: John, Mary, Jack
+
+
 class Point:
-    def __init__(self, x, y):   # init short for initialise - can specify parameters for the class here (e.g. x and y)
+    #  init short for initialise - can specify parameters for the class here (e.g. x and y)
+    def __init__(self, x, y):
         self.x = x              # self is a reference to the current object
         self.y = y
 
@@ -9,6 +16,11 @@ class Point:
 
     def draw(self):
         print("Draw")
+
+    # The cls argument means it is a class method not an instance method, cls is a reference to the class itself not the object
+    @classmethod    # This is a decorator and extends a behaviour
+    def zero(cls):
+        return cls(0, 0)
 
 
 point1 = Point(10, 12)
@@ -19,9 +31,10 @@ print(point1.x)
 class Person:
     def __init__(self, name):
         self.name = name
-    
+
     def talk(self):
         print(f"Hi I'm {self.name}")
+
 
 john = Person('John')
 john.talk()
@@ -53,6 +66,8 @@ class Employee:
         self.last = last
         self.pay = pay
 
+
 empl1 = Employee('Harry', 'Matharu', 30000)
 
-print(f"Employee details:\nFirst name: {empl1.first}\nLast name: {empl1.last}\nSalary: {empl1.pay}")
+print(
+    f"Employee details:\nFirst name: {empl1.first}\nLast name: {empl1.last}\nSalary: {empl1.pay}")
